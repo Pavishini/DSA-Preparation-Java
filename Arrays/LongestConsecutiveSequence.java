@@ -10,6 +10,7 @@ Approach:
 - Store all elements in HashSet
 - Start sequence only when previous number is absent
 - Expand sequence using current + 1
+- Iterate over HashSet to avoid duplicate checks
 
 Time Complexity: O(n)
 Space Complexity: O(n)
@@ -21,21 +22,21 @@ class Solution {
 
         HashSet<Integer> set = new HashSet<>();
 
-        int longest = 0;
-
         // Add all elements to HashSet
-        for(int i = 0; i < nums.length; i++) {
+        for(int num : nums) {
 
-            set.add(nums[i]);
+            set.add(num);
         }
 
-        // Find longest sequence
-        for(int i = 0; i < nums.length; i++) {
+        int longest = 0;
+
+        // Traverse HashSet
+        for(int num : set) {
 
             // Start of sequence
-            if(!set.contains(nums[i] - 1)) {
+            if(!set.contains(num - 1)) {
 
-                int current = nums[i];
+                int current = num;
 
                 int count = 1;
 
