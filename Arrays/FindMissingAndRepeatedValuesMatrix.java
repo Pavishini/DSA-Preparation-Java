@@ -1,0 +1,57 @@
+/*
+Problem: Find Missing and Repeated Values
+
+Pattern: Frequency Array
+
+Observation:
+- Numbers range from 1 to n²
+- One number repeats
+- One number is missing
+
+Approach:
+- Store frequencies using freq[]
+- freq[i] == 2 → repeating
+- freq[i] == 0 → missing
+
+Time Complexity: O(n²)
+Space Complexity: O(n²)
+*/
+
+class Solution {
+
+    public int[] findMissingAndRepeatedValues(int[][] grid) {
+
+        int n = grid.length;
+
+        int[] freq = new int[n * n + 1];
+
+        // Count frequencies
+        for(int i = 0; i < n; i++) {
+
+            for(int j = 0; j < n; j++) {
+
+                freq[grid[i][j]]++;
+            }
+        }
+
+        int repeating = -1;
+
+        int missing = -1;
+
+        // Find repeated and missing
+        for(int i = 1; i <= n * n; i++) {
+
+            if(freq[i] == 2) {
+
+                repeating = i;
+            }
+
+            else if(freq[i] == 0) {
+
+                missing = i;
+            }
+        }
+
+        return new int[]{repeating, missing};
+    }
+}
