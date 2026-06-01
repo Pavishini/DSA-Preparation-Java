@@ -23,3 +23,9 @@
 2. Pascal Triangle II — LeetCode 119
 3. Find Element in Pascal Triangle
 
+# Kadane's Algorithm Family
+
+1. Maximum Subarray Sum — LeetCode 53
+2. Maximum Product Subarray — LeetCode 152
+3. Maximum Circular Subarray Sum — LeetCode 918
+4. Maximum Absolute Sum of Any Subarray — LeetCode 1749
